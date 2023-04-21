@@ -29,6 +29,8 @@ namespace hex::plugin::builtin {
     void registerThemeHandlers();
     void registerStyleHandlers();
     void registerThemes();
+    void registerBackgroundServices();
+    void registerNetworkEndpoints();
 
     void addFooterItems();
     void addToolbarItems();
@@ -65,6 +67,8 @@ IMHEX_PLUGIN_SETUP("Built-in", "WerWolv", "Default ImHex functionality") {
     registerThemeHandlers();
     registerStyleHandlers();
     registerThemes();
+    registerBackgroundServices();
+    registerNetworkEndpoints();
 
     addFooterItems();
     addToolbarItems();

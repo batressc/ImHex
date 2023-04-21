@@ -829,6 +829,35 @@ namespace hex {
             }
 
         }
+
+        namespace BackgroundServices {
+
+            namespace impl {
+                using Callback = std::function<void()>;
+
+                struct Service {
+                    std::string name;
+                    std::jthread thread;
+                };
+
+                std::vector<Service> &getServices();
+                void stopServices();
+            }
+
+            void registerService(const std::string &unlocalizedName, const impl::Callback &callback);
+        }
+
+        namespace CommunicationInterface {
+
+            namespace impl {
+                using NetworkCallback = std::function<nlohmann::json(const nlohmann::json &)>;
+
+                std::map<std::string, NetworkCallback> &getNetworkEndpoints();
+            }
+
+            void registerNetworkEndpoint(const std::string &endpoint, const impl::NetworkCallback &callback);
+
+        }
     }
 
 }

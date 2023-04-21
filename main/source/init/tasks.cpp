@@ -322,6 +322,9 @@ namespace hex::init {
         ContentRegistry::FileHandler::impl::getEntries().clear();
         ContentRegistry::Hashes::impl::getHashes().clear();
 
+        ContentRegistry::BackgroundServices::impl::stopServices();
+        ContentRegistry::BackgroundServices::impl::getServices().clear();
+
         ThemeManager::reset();
 
         {
