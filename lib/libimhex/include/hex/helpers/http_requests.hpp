@@ -106,10 +106,6 @@ namespace hex {
             return *this;
         }
 
-        static void setCACert(std::string data) {
-            HttpRequest::s_caCertData = std::move(data);
-        }
-
         static void setProxy(std::string proxy) {
             HttpRequest::s_proxyUrl = std::move(proxy);
         }
@@ -312,7 +308,6 @@ namespace hex {
             return Result<T>(statusCode, { data.begin(), data.end() });
         }
 
-        [[maybe_unused]] static CURLcode sslCtxFunction(CURL *ctx, void *sslctx, void *userData);
         static size_t writeToVector(void *contents, size_t size, size_t nmemb, void *userdata);
         static size_t writeToFile(void *contents, size_t size, size_t nmemb, void *userdata);
         static int progressCallback(void *contents, curl_off_t dlTotal, curl_off_t dlNow, curl_off_t ulTotal, curl_off_t ulNow);
@@ -332,7 +327,7 @@ namespace hex {
         std::atomic<bool> m_canceled = false;
 
         [[maybe_unused]] std::unique_ptr<mbedtls_x509_crt> m_caCert;
-        static std::string s_caCertData, s_proxyUrl;
+        static std::string s_proxyUrl;
     };
 
 }

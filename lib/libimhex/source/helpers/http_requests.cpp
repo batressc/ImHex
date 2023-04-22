@@ -2,7 +2,6 @@
 
 namespace hex {
 
-    std::string HttpRequest::s_caCertData;
     std::string HttpRequest::s_proxyUrl;
 
     void HttpRequest::setDefaultConfig() {
@@ -20,31 +19,6 @@ namespace hex {
         curl_easy_setopt(this->m_curl, CURLOPT_XFERINFODATA, this);
         curl_easy_setopt(this->m_curl, CURLOPT_XFERINFOFUNCTION, progressCallback);
         curl_easy_setopt(this->m_curl, CURLOPT_PROXY, s_proxyUrl.c_str());
-
-        #if defined(IMHEX_USE_BUNDLED_CA)
-            curl_easy_setopt(this->m_curl, CURLOPT_CAINFO, nullptr);
-            curl_easy_setopt(this->m_curl, CURLOPT_CAPATH, nullptr);
-            curl_easy_setopt(this->m_curl, CURLOPT_SSLCERTTYPE, "PEM");
-            curl_easy_setopt(this->m_curl, CURLOPT_SSL_CTX_FUNCTION, sslCtxFunction);
-
-            this->m_caCert = std::make_unique<mbedtls_x509_crt>();
-            curl_easy_setopt(this->m_curl, CURLOPT_SSL_CTX_DATA, this->m_caCert.get());
-        #endif
-    }
-
-    CURLcode HttpRequest::sslCtxFunction(CURL *ctx, void *sslctx, void *userData) {
-        hex::unused(ctx, userData);
-
-        auto *cfg = static_cast<mbedtls_ssl_config *>(sslctx);
-
-        auto crt = static_cast<mbedtls_x509_crt*>(userData);
-        mbedtls_x509_crt_init(crt);
-
-        mbedtls_x509_crt_parse(crt, reinterpret_cast<const u8 *>(HttpRequest::s_caCertData.data()), HttpRequest::s_caCertData.size());
-
-        mbedtls_ssl_conf_ca_chain(cfg, crt, nullptr);
-
-        return CURLE_OK;
     }
 
     size_t HttpRequest::writeToVector(void *contents, size_t size, size_t nmemb, void *userdata) {

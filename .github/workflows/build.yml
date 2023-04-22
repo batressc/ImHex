@@ -347,7 +347,6 @@ jobs:
             -DIMHEX_COMMIT_BRANCH="${GITHUB_REF##*/}"     \
             -DCMAKE_INTERPROCEDURAL_OPTIMIZATION=ON       \
             -DIMHEX_PLUGINS_IN_SHARE=ON                   \
-            -DIMHEX_USE_BUNDLED_CA=ON                     \
             ..
           make -j 4 install DESTDIR=AppDir
 
@@ -419,7 +418,6 @@ jobs:
           -DCMAKE_INSTALL_PREFIX="/usr"                 \
           -DCMAKE_C_COMPILER_LAUNCHER=ccache            \
           -DCMAKE_CXX_COMPILER_LAUNCHER=ccache          \
-          -DUSE_SYSTEM_CURL=ON                          \
           -DUSE_SYSTEM_FMT=ON                           \
           -DUSE_SYSTEM_YARA=ON                          \
           -DUSE_SYSTEM_NLOHMANN_JSON=ON                 \
