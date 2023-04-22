@@ -10,4 +10,5 @@ dnf install -y      \
   mesa-libGL-devel  \
   glfw-devel        \
   lld               \
-  mbedtls-devel
+  mbedtls-devel     \
+  libcurl-devel

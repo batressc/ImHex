@@ -24,5 +24,6 @@ RDEPEND="${DEPEND}
 		dev-cpp/nlohmann_json
 		dbus
 		xdg-desktop-portal
+		net-misc/curl
 		"
 BDEPEND="${DEPEND}"

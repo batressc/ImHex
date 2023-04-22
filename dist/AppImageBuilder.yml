@@ -36,6 +36,7 @@ AppDir:
     - libpcre3:amd64
     - libselinux1:amd64
     - libtinfo6:amd64
+    - openssl
   files:
     include:
     - /lib/x86_64-linux-gnu/libGLX.so.0
@@ -97,6 +98,8 @@ AppDir:
     - /lib/x86_64-linux-gnu/libmbedcrypto.so.7
     - /lib/x86_64-linux-gnu/libmbedtls.so.14
     - /lib/x86_64-linux-gnu/libmbedx509.so.1
+    - /lib/x86_64-linux-gnu/libcrypto.so.3
+    - /lib/x86_64-linux-gnu/libcurl.so.4
     - /lib/x86_64-linux-gnu/libmd.so.0
     - /lib/x86_64-linux-gnu/libmount.so.1
     - /lib/x86_64-linux-gnu/libnettle.so.8
