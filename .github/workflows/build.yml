@@ -59,7 +59,7 @@ jobs:
           freetype:p
           dlfcn:p
           libbacktrace:p
-          libcurl
+          curl
 
     - name: 📜 Set version variable
       run: |

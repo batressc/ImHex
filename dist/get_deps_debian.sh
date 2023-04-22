@@ -22,4 +22,4 @@ apt install -y \
   libfreetype-dev       \
   libdbus-1-dev         \
   xdg-desktop-portal    \
-  libcurl-dev
+  libcurl4-gnutls-dev

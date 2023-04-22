@@ -478,7 +478,7 @@ macro(addBundledLibraries)
     endif()
 
     find_package(PkgConfig REQUIRED)
-    pkg_check_modules(LIBCURL REQUIRED IMPORTED_TARGET libcurl>=7.76.1)
+    pkg_check_modules(LIBCURL REQUIRED IMPORTED_TARGET libcurl)
 
     if (NOT USE_SYSTEM_LLVM)
         add_subdirectory(${EXTERN_LIBS_FOLDER}/llvm-demangle EXCLUDE_FROM_ALL)
