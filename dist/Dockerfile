@@ -15,7 +15,8 @@ RUN pacman -S --needed --noconfirm      \
     mbedtls                             \
     freetype2                           \
     dbus                                \
-    xdg-desktop-portal
+    xdg-desktop-portal                  \
+    curl-devel
 
 # Clone ImHex
 RUN git clone https://github.com/WerWolv/ImHex --recurse-submodules /root/ImHex
