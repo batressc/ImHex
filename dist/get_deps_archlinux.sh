@@ -13,5 +13,4 @@ pacman -S $@ --needed \
   curl      \
   fmt       \
   yara      \
-  nlohmann-json \
-  libcurl-devel
+  nlohmann-json

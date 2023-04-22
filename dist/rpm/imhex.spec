@@ -80,6 +80,7 @@ CXXFLAGS+=" -std=gnu++2b"
  -D USE_SYSTEM_LLVM=ON                   \
  -D USE_SYSTEM_YARA=ON                   \
  -D USE_SYSTEM_NFD=ON                    \
+ -DCMAKE_CXX_FLAGS="-DIMGUI_DISABLE_SSE=1" \
 # when capstone >= 5.x is released we should be able to build against \
 # system libs of it \
 # -D USE_SYSTEM_CAPSTONE=ON
